@@ -6,9 +6,9 @@ public class Maximos {
 	 * Default constructor
 	 * Obtiene dos numeros por parametro
 	 */
-	private int num1 = 5;
-	private int num2 = 8;
-	private int num3 = 10;
+	private int num1;
+	private int num2;
+	private int num3;
 
 	public int getNum1() {
 		return num1;
@@ -40,30 +40,28 @@ public class Maximos {
 
 
 	/**
-	 * Muestra por pantalla cual de los dos numeros es el mayor
+	 * Calcula cual de los dos numeros es el mayor
+	 * @return 
 	 * 
 	 * @return	el numero mayor
 	 */
-	private static void MaximoDe2EnterosPositivos (int num1, int num2){
-		if(num1 >= 0 && num2 >= 0) {
-			if(num1 > num2) {
-				System.out.print("El número: "+num1+" es mayor que "+num2);
-			} else if(num1 < num2){
-				System.out.print("El número: "+num2+" es mayor que "+num1);
-			}else if(num1 == num2) {
-				System.out.print("Los dos numeros son iguales");
-			}
-		} else {
-			throw new IllegalArgumentException("Los numeros introducidos no son mayores o iguales a 0");
+	private static int MaximoDe2EnterosPositivos (int num1, int num2){
+		if (num1 < 0 || num2 < 0) {
+	        throw new IllegalArgumentException("Los numeros introducidos no son mayores o iguales a 0");
+	    }
+		int max = num1;
+		if (num2 > max) {
+			max = num2;
 		}
+		return max;
 	}
 	
 	/**
-	 * Muestra por pantalla cual de los tres numeros es el mayor
+	 * Calcula cual de los tres numeros es el mayor
 	 * 
 	 * @return	el numero mayor
 	 */
-	private static void MaximoDe3EnterosPositivos (int num1, int num2, int num3){
+	private static int MaximoDe3EnterosPositivos (int num1, int num2, int num3){
 		if (num1 < 0 || num2 < 0 || num3 < 0) {
 	        throw new IllegalArgumentException("Los numeros introducidos no son mayores o iguales a 0");
 	    }
@@ -73,6 +71,6 @@ public class Maximos {
 		    }else if (num3 > max) {
 		        max = num3;
 		    }
-		    System.out.print("El número mayor es: "+max);
+		    return max;
 	}
 }

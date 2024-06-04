@@ -6,9 +6,9 @@ public class Minimos {
 	 * Default constructor
 	 * Obtiene dos numeros por parametro
 	 */
-	private int num1 = 5;
-	private int num2 = 8;
-	private int num3 = 10;
+	private int num1;
+	private int num2;
+	private int num3;
 
 	public int getNum1() {
 		return num1;
@@ -44,18 +44,15 @@ public class Minimos {
 	 * 
 	 * @return	el numero mayor
 	 */
-	private static void MinimoDe2EnterosPositivos (int num1, int num2){
-		if(num1 >= 0 && num2 >= 0) {
-			if(num1 < num2) {
-				System.out.print("El número: "+num1+" es menor que "+num2);
-			} else if(num1 > num2){
-				System.out.print("El número: "+num2+" es menor que "+num1);
-			}else if(num1 == num2) {
-				System.out.print("Los dos numeros son iguales");
-			}
-		} else {
-			throw new IllegalArgumentException("Los numeros introducidos no son mayores o iguales a 0");
+	private static int MinimoDe2EnterosPositivos (int num1, int num2){
+		if (num1 < 0 || num2 < 0) {
+	        throw new IllegalArgumentException("Los numeros introducidos no son mayores o iguales a 0");
+	    }
+		int min = num1;
+		if (num2 < min) {
+			min = num2;
 		}
+		return min;
 	}
 	
 	/**
@@ -63,16 +60,16 @@ public class Minimos {
 	 * 
 	 * @return	el numero mayor
 	 */
-	private static void MinimoDe3EnterosPositivos (int num1, int num2, int num3){
+	private static int MinimoDe3EnterosPositivos (int num1, int num2, int num3){
 		if (num1 < 0 || num2 < 0 || num3 < 0) {
 	        throw new IllegalArgumentException("Los numeros introducidos no son mayores o iguales a 0");
 	    }
-			int max = num1;
-		    if (num2 < max) {
-		        max = num2;
-		    }else if (num3 < max) {
-		        max = num3;
+			int min = num1;
+		    if (num2 < min) {
+		        min = num2;
+		    }else if (num3 < min) {
+		        min = num3;
 		    }
-		    System.out.print("El número menor es: "+max);
+		    return min;
 	}
 }
